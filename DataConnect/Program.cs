@@ -21,7 +21,7 @@ namespace DataConnect
                 GetNameFromCustomers(source, select);
                 GetEmployeeAndOrder();
                 SqlConnection conn = new SqlConnection(source);
-                SqlDataAdapter da = new SqlDataAdapter(select, conn);
+                //SqlDataAdapter da = new SqlDataAdapter(select, conn);
                 da.UpdateCommand = new SqlCommand("update region set regiondescription = @regiondescription where regionid = @regionid", conn);
                 da.UpdateCommand.Parameters.Add("@regiondescription", SqlDbType.NChar, 50, "regiondescription");
                 //SqlParameter pa = da.UpdateCommand.Parameters.Add("@regionid", SqlDbType.Int);
