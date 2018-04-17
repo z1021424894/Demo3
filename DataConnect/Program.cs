@@ -18,20 +18,20 @@ namespace DataConnect
             {
                 //string select = "select top 1 regionid from Region order by RegionID desc ";
                 string select = "select regionid,regiondescription from region";
-                //GetNameFromCustomers(source, select);
-                //GetEmployeeAndOrder();
-                //SqlConnection conn = new SqlConnection(source);
-                //SqlDataAdapter da = new SqlDataAdapter(select, conn);
-                //da.UpdateCommand = new SqlCommand("update region set regiondescription = @regiondescription where regionid = @regionid", conn);
-                //da.UpdateCommand.Parameters.Add("@regiondescription", SqlDbType.NChar, 50, "regiondescription");
-                //SqlParameter pa = da.UpdateCommand.Parameters.Add("@regionid", SqlDbType.Int);
-                //pa.SourceColumn = "regionid";
-                //pa.SourceVersion = DataRowVersion.Original;
-                //DataTable dt = new DataTable();
-                //da.Fill(dt);
-                //DataRow r = dt.Rows[12];
-                //r[1] = "test";
-                //da.Update(dt);
+                GetNameFromCustomers(source, select);
+                GetEmployeeAndOrder();
+                SqlConnection conn = new SqlConnection(source);
+                SqlDataAdapter da = new SqlDataAdapter(select, conn);
+                da.UpdateCommand = new SqlCommand("update region set regiondescription = @regiondescription where regionid = @regionid", conn);
+                da.UpdateCommand.Parameters.Add("@regiondescription", SqlDbType.NChar, 50, "regiondescription");
+                SqlParameter pa = da.UpdateCommand.Parameters.Add("@regionid", SqlDbType.Int);
+                pa.SourceColumn = "regionid";
+                pa.SourceVersion = DataRowVersion.Original;
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                DataRow r = dt.Rows[12];
+                r[1] = "test";
+                da.Update(dt);
                 foreach (DataRow row in dt.Rows)
                 {
                     Console.WriteLine($"RegionID = {row[0],-5} RegionDescription = {row[1]}");
