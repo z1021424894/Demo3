@@ -16,10 +16,10 @@ namespace DataConnect
         {
             try
             {
-                //string select = "select top 1 regionid from Region order by RegionID desc ";
+                string select = "select top 1 regionid from Region order by RegionID desc ";
                 string select = "select regionid,regiondescription from region";
-                //GetNameFromCustomers(source, select);
-                //GetEmployeeAndOrder();
+                GetNameFromCustomers(source, select);
+                GetEmployeeAndOrder();
                 SqlConnection conn = new SqlConnection(source);
                 SqlDataAdapter da = new SqlDataAdapter(select, conn);
                 da.UpdateCommand = new SqlCommand("update region set regiondescription = @regiondescription where regionid = @regionid", conn);
