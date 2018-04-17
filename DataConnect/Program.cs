@@ -24,13 +24,13 @@ namespace DataConnect
                 SqlDataAdapter da = new SqlDataAdapter(select, conn);
                 da.UpdateCommand = new SqlCommand("update region set regiondescription = @regiondescription where regionid = @regionid", conn);
                 da.UpdateCommand.Parameters.Add("@regiondescription", SqlDbType.NChar, 50, "regiondescription");
-                SqlParameter pa = da.UpdateCommand.Parameters.Add("@regionid", SqlDbType.Int);
-                pa.SourceColumn = "regionid";
-                pa.SourceVersion = DataRowVersion.Original;
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                DataRow r = dt.Rows[12];
-                r[1] = "test";
+                //SqlParameter pa = da.UpdateCommand.Parameters.Add("@regionid", SqlDbType.Int);
+                //pa.SourceColumn = "regionid";
+                //pa.SourceVersion = DataRowVersion.Original;
+                //DataTable dt = new DataTable();
+                //da.Fill(dt);
+                //DataRow r = dt.Rows[12];
+                //r[1] = "test";
                 da.Update(dt);
                 foreach (DataRow row in dt.Rows)
                 {
